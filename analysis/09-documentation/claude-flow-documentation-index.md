@@ -3,7 +3,7 @@
 ## Core Documentation Files
 
 ### 1. Main Documentation
-- **CLAUDE.md** - Primary command reference and configuration guide
+- **Command Reference** - Primary command reference and configuration guide
   - Complete command reference for all claude-flow commands
   - Quick start workflows for common use cases
   - Integration patterns and best practices
@@ -138,7 +138,7 @@ claude-flow memory import data.json
 ## Learning Resources
 
 ### Beginner
-1. Read CLAUDE.md Quick Start section
+1. Read Quick Start workflows section
 2. Try basic commands (init, start, sparc)
 3. Experiment with simple agent spawning
 

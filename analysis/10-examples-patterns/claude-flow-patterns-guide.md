@@ -56,6 +56,46 @@ Task("Backend Team", "Implement APIs according to Memory specifications");
 
 ### 2. Swarm Coordination Patterns
 
+```mermaid
+%%{init: {'flowchart': {'defaultRenderer': 'elk'}}}%%
+flowchart TD
+    Objective[Project Objective] --> Strategy{Select Strategy}
+    
+    Strategy --> Research[Research Strategy]
+    Strategy --> Development[Development Strategy]
+    Strategy --> Analysis[Analysis Strategy]
+    Strategy --> Testing[Testing Strategy]
+    
+    Research --> RMode{Coordination Mode}
+    Development --> DMode{Coordination Mode}
+    Analysis --> AMode{Coordination Mode}
+    Testing --> TMode{Coordination Mode}
+    
+    RMode --> Distributed[Distributed Mode]
+    RMode --> Centralized[Centralized Mode]
+    DMode --> Hierarchical[Hierarchical Mode]
+    DMode --> Mesh[Mesh Mode]
+    AMode --> Hybrid[Hybrid Mode]
+    TMode --> Centralized2[Centralized Mode]
+    
+    Distributed --> RAgents[Research Agents]
+    Centralized --> RAgents
+    Hierarchical --> DAgents[Dev Agents]
+    Mesh --> DAgents
+    Hybrid --> AAgents[Analysis Agents]
+    Centralized2 --> TAgents[Test Agents]
+    
+    RAgents --> Memory1[Shared Memory]
+    DAgents --> Memory2[Shared Memory]
+    AAgents --> Memory3[Shared Memory]
+    TAgents --> Memory4[Shared Memory]
+    
+    Memory1 --> Results[Aggregate Results]
+    Memory2 --> Results
+    Memory3 --> Results
+    Memory4 --> Results
+```
+
 #### Research Swarm
 ```bash
 # Distributed research with multiple agents

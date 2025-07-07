@@ -24,6 +24,9 @@ echo "Created backup of ~/.bashrc"
 CLAUDE_FLOW_PATH=$(which claude-flow)
 echo "Using claude-flow path: $CLAUDE_FLOW_PATH"
 
+# Get user home directory
+USER_HOME=$HOME
+
 # Add aliases to .bashrc
 cat >> ~/.bashrc << EOF
 
@@ -33,14 +36,11 @@ cat >> ~/.bashrc << EOF
 # Claude-flow binary path
 CLAUDE_FLOW_BIN="$CLAUDE_FLOW_PATH"
 
-# Profile-specific claude-flow aliases
-alias cc_pers-flow='CLAUDE_CONFIG_DIR=/home/steve/claude_code_pers PATH=/home/steve/claude_code_pers/local:\$PATH \$CLAUDE_FLOW_BIN'
-alias cc_work-flow='CLAUDE_CONFIG_DIR=/home/steve/claude_code_work PATH=/home/steve/claude_code_work/local:\$PATH \$CLAUDE_FLOW_BIN'
-alias ccmax.pdi01-flow='CLAUDE_CONFIG_DIR=/home/steve/ccmax.pdi01 PATH=/home/steve/ccmax.pdi01/local:\$PATH \$CLAUDE_FLOW_BIN'
-alias ccmax.pdi02-flow='CLAUDE_CONFIG_DIR=/home/steve/ccmax.pdi02 PATH=/home/steve/ccmax.pdi02/local:\$PATH \$CLAUDE_FLOW_BIN'
-alias ccmax.pdi03-flow='CLAUDE_CONFIG_DIR=/home/steve/ccmax.pdi03 PATH=/home/steve/ccmax.pdi03/local:\$PATH \$CLAUDE_FLOW_BIN'
-alias ccmax.pdi04-flow='CLAUDE_CONFIG_DIR=/home/steve/ccmax.pdi04 PATH=/home/steve/ccmax.pdi04/local:\$PATH \$CLAUDE_FLOW_BIN'
-alias ccmax.pdi05-flow='CLAUDE_CONFIG_DIR=/home/steve/ccmax.pdi05 PATH=/home/steve/ccmax.pdi05/local:\$PATH \$CLAUDE_FLOW_BIN'
+# Example profile-specific claude-flow aliases
+# Customize these paths based on your Claude installation locations
+alias claude-flow-personal='CLAUDE_CONFIG_DIR=\$HOME/claude-personal PATH=\$HOME/claude-personal/local:\$PATH \$CLAUDE_FLOW_BIN'
+alias claude-flow-work='CLAUDE_CONFIG_DIR=\$HOME/claude-work PATH=\$HOME/claude-work/local:\$PATH \$CLAUDE_FLOW_BIN'
+alias claude-flow-dev='CLAUDE_CONFIG_DIR=\$HOME/claude-dev PATH=\$HOME/claude-dev/local:\$PATH \$CLAUDE_FLOW_BIN'
 
 # Short alias for claude-flow (uses current CLAUDE_CONFIG_DIR if set)
 alias flow='\$CLAUDE_FLOW_BIN'
@@ -58,15 +58,15 @@ claude-profile() {
 # Helper function to list available flow aliases
 claude-flow-aliases() {
     echo "Available claude-flow profile aliases:"
-    echo "  cc_pers-flow      - /home/steve/claude_code_pers"
-    echo "  cc_work-flow      - /home/steve/claude_code_work"
-    echo "  ccmax.pdi01-flow  - /home/steve/ccmax.pdi01"
-    echo "  ccmax.pdi02-flow  - /home/steve/ccmax.pdi02"
-    echo "  ccmax.pdi03-flow  - /home/steve/ccmax.pdi03"
-    echo "  ccmax.pdi04-flow  - /home/steve/ccmax.pdi04"
-    echo "  ccmax.pdi05-flow  - /home/steve/ccmax.pdi05"
+    echo "  claude-flow-personal  - Personal development profile"
+    echo "  claude-flow-work      - Work profile"
+    echo "  claude-flow-dev       - Development/testing profile"
+    echo "  flow                  - Short alias for claude-flow"
     echo ""
     echo "Current profile: \$([ -n "\$CLAUDE_CONFIG_DIR" ] && echo "\$CLAUDE_CONFIG_DIR" || echo "none")"
+    echo ""
+    echo "To create custom profiles, add aliases like:"
+    echo "  alias my-flow='CLAUDE_CONFIG_DIR=\$HOME/my-claude PATH=\$HOME/my-claude/local:\$PATH \$CLAUDE_FLOW_BIN'"
 }
 
 # === End of Claude-flow aliases ===
@@ -75,19 +75,20 @@ EOF
 echo ""
 echo "✅ Successfully added claude-flow aliases to ~/.bashrc"
 echo ""
-echo "Available aliases:"
-echo "  cc_pers-flow      - Use claude_code_pers profile"
-echo "  cc_work-flow      - Use claude_code_work profile"
-echo "  ccmax.pdi01-flow  - Use ccmax.pdi01 profile"
-echo "  ccmax.pdi02-flow  - Use ccmax.pdi02 profile"
-echo "  ccmax.pdi03-flow  - Use ccmax.pdi03 profile"
-echo "  ccmax.pdi04-flow  - Use ccmax.pdi04 profile"
-echo "  ccmax.pdi05-flow  - Use ccmax.pdi05 profile"
-echo "  flow              - Short alias for claude-flow"
+echo "Example aliases added (customize the paths as needed):"
+echo "  claude-flow-personal  - Personal development profile"
+echo "  claude-flow-work      - Work profile" 
+echo "  claude-flow-dev       - Development/testing profile"
+echo "  flow                  - Short alias for claude-flow"
 echo ""
 echo "Helper functions:"
 echo "  claude-profile       - Show current Claude profile"
 echo "  claude-flow-aliases  - List all available aliases"
+echo ""
+echo "To customize aliases for your specific Claude installations:"
+echo "1. Edit ~/.bashrc"
+echo "2. Update the paths in the alias definitions"
+echo "3. Add new aliases following the same pattern"
 echo ""
 echo "To activate these aliases, run:"
 echo "  source ~/.bashrc"

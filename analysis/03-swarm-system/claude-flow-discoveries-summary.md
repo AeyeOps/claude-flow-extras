@@ -2,7 +2,7 @@
 
 ## What Happened When You Ran the Swarm
 
-When you executed `ccmax.pdi05-flow swarm "test the fix"`, claude-flow orchestrated a sophisticated multi-agent testing operation that:
+When you executed `claude-flow swarm "test the fix"`, claude-flow orchestrated a sophisticated multi-agent testing operation that:
 
 ### 1. **Created 5 Specialized Testing Agents**
 - **Test Environment Agent**: Set up the complete testing infrastructure

@@ -8,6 +8,42 @@ Claude-Flow implements a sophisticated multi-interface UI system that supports t
 
 ## UI Architecture Overview
 
+```mermaid
+%%{init: {'flowchart': {'defaultRenderer': 'elk'}}}%%
+flowchart TD
+    User[User] --> UI[UI Layer]
+    
+    UI --> Terminal[Terminal UI]
+    UI --> Web[Web UI]
+    UI --> Compatible[Compatible UI]
+    
+    Terminal --> Blessed[Blessed Framework]
+    Terminal --> Textual[Textual Framework]
+    Terminal --> PTY[Node-pty]
+    
+    Blessed --> MultiPane[Multi-pane Layout]
+    Blessed --> Interactive[Interactive Controls]
+    Textual --> Dashboard[Dashboard View]
+    PTY --> PseudoTerm[Pseudo-terminals]
+    
+    Web --> Express[Express Server]
+    Web --> WebSocket[WebSocket Server]
+    Web --> Console[Console App]
+    
+    Express --> API[REST API]
+    WebSocket --> Realtime[Real-time Updates]
+    Console --> TermEmulator[Terminal Emulator]
+    Console --> CommandHandler[Command Handler]
+    
+    Compatible --> NonRaw[Non-raw Mode]
+    Compatible --> CommandLoop[Command Loop]
+    Compatible --> ProcessMon[Process Monitor]
+    
+    Terminal --> Claude[Claude API]
+    Web --> Claude
+    Compatible --> Claude
+```
+
 ### 1. Terminal UI Implementation
 
 #### Technology Stack

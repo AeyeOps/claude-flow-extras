@@ -33,6 +33,46 @@ cli.js → simple-cli.ts → Command Router → Feature Modules
 - **Terminal Pool & Resource Management**: Efficient resource allocation
 - **Claude Code Integration Layer**: Direct integration with Claude API
 
+```mermaid
+%%{init: {'flowchart': {'defaultRenderer': 'elk'}}}%%
+flowchart TD
+    User[User Request] --> CLI[CLI Entry Point]
+    CLI --> Router[Command Router]
+    
+    Router --> Orchestrator[BatchTool Orchestrator]
+    
+    Orchestrator --> AgentPool[Agent Pool]
+    AgentPool --> Agent1[Architect Agent]
+    AgentPool --> Agent2[Coder Agent]
+    AgentPool --> Agent3[Researcher Agent]
+    AgentPool --> Agent4[TDD Agent]
+    AgentPool --> Agent5[... 13 more agents]
+    
+    Orchestrator --> Memory[Shared Memory Bank]
+    Memory --> SQLite[(SQLite Storage)]
+    
+    Orchestrator --> Resources[Resource Manager]
+    Resources --> Terminal[Terminal Pool]
+    Resources --> Process[Process Pool]
+    
+    Agent1 --> Claude[Claude API]
+    Agent2 --> Claude
+    Agent3 --> Claude
+    Agent4 --> Claude
+    Agent5 --> Claude
+    
+    Memory --> Agent1
+    Memory --> Agent2
+    Memory --> Agent3
+    Memory --> Agent4
+    Memory --> Agent5
+    
+    Router --> UI[UI Layer]
+    UI --> WebUI[Web Interface]
+    UI --> TermUI[Terminal UI]
+    UI --> CompatUI[Compatible UI]
+```
+
 ### 2. Command Categories
 - Agent Management (spawn, list, manage)
 - Task Management (create, queue, execute)

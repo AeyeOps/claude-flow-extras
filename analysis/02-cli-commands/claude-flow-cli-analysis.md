@@ -31,6 +31,52 @@ interface CommandContext {
 
 ## Complete Command List
 
+```mermaid
+%%{init: {'flowchart': {'defaultRenderer': 'elk'}}}%%
+flowchart TD
+    CLI[claude-flow] --> Core[Core Commands]
+    CLI --> Dev[Development]
+    CLI --> Mgmt[Management]
+    CLI --> Ent[Enterprise]
+    
+    Core --> init[init]
+    Core --> start[start]
+    Core --> status[status]
+    Core --> monitor[monitor]
+    
+    Dev --> claude[claude]
+    Dev --> sparc[sparc]
+    Dev --> swarm[swarm]
+    Dev --> workflow[workflow]
+    
+    sparc --> modes[17 SPARC Modes]
+    modes --> orchestrator[orchestrator]
+    modes --> coder[coder]
+    modes --> researcher[researcher]
+    modes --> tdd[tdd]
+    modes --> more[... 13 more]
+    
+    Mgmt --> config[config]
+    Mgmt --> memory[memory]
+    Mgmt --> session[session]
+    Mgmt --> mcp[mcp]
+    
+    config --> configSub[show/get/set/init/validate]
+    memory --> memorySub[store/get/list/export/import]
+    
+    Mgmt --> task[task]
+    Mgmt --> agent[agent]
+    
+    task --> taskSub[create/list/assign/workflow]
+    agent --> agentSub[spawn/list/info/stop]
+    
+    Ent --> project[project]
+    Ent --> deploy[deploy]
+    Ent --> cloud[cloud]
+    Ent --> security[security]
+    Ent --> analytics[analytics]
+```
+
 ### 1. **init** - Initialize Claude Code integration files
 - **Options**:
   - `--force`: Force overwrite existing files

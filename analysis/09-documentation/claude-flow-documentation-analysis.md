@@ -19,7 +19,7 @@ claude-flow --version
 #### Profile Setup
 - Use setup-claude-flow-aliases.sh to configure profile aliases
 - Supports multiple Claude profiles with environment-specific configurations
-- Aliases like cc_pers-flow, cc_work-flow for different profiles
+- Create custom aliases for different development environments
 
 #### Quick Start
 ```bash
@@ -145,7 +145,7 @@ claude-flow sparc "Build a REST API"
 ## Learning Path Recommendations
 
 ### Beginner Path
-1. Start with CLAUDE.md for command overview
+1. Start with the command reference for command overview
 2. Read Quick Start Workflows section
 3. Try simple commands: init, start, sparc
 4. Experiment with basic agent spawning

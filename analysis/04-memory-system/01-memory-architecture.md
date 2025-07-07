@@ -6,6 +6,37 @@ The Claude-Flow Memory system is a sophisticated distributed memory management s
 
 ## Core Architecture Components
 
+```mermaid
+%%{init: {'flowchart': {'defaultRenderer': 'elk'}}}%%
+flowchart TD
+    Agents[AI Agents] --> API[Memory API Layer]
+    
+    API --> AMM[Advanced Memory Manager]
+    API --> SMM[Swarm Memory Manager]
+    API --> DMS[Distributed Memory System]
+    
+    AMM --> Index[Indexing System]
+    AMM --> Compress[Compression Engine]
+    AMM --> Cache[Cache Layer]
+    
+    SMM --> AgentMem[Agent Memory Spaces]
+    SMM --> Knowledge[Knowledge Base]
+    SMM --> Broadcast[Broadcast System]
+    
+    DMS --> Nodes[Node Network]
+    DMS --> Sync[Sync Protocol]
+    DMS --> Partition[Partitioning]
+    
+    Index --> Storage[(SQLite Storage)]
+    Compress --> Storage
+    Cache --> Storage
+    AgentMem --> Storage
+    Knowledge --> Storage
+    
+    Storage --> Backup[Backup System]
+    Storage --> Export[Export/Import]
+```
+
 ### 1. Advanced Memory Manager (`src/memory/advanced-memory-manager.ts`)
 
 The heart of the memory system, providing comprehensive memory management capabilities:

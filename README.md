@@ -8,6 +8,7 @@ Claude Flow represents a collection of methodologies and patterns for effectivel
 
 ## Repository Structure
 
+- `/adventures` - Documented adventures and their outcomes
 - `/experiments` - Documented experiments and their results
 - `/analysis` - In-depth analysis of Claude Flow patterns
 - `/notes` - Research notes and observations

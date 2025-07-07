@@ -23,6 +23,72 @@ The SPARC methodology emphasizes:
 
 Each SPARC mode follows these phases:
 
+```mermaid
+%%{init: {'flowchart': {'defaultRenderer': 'elk'}}}%%
+flowchart TD
+    Start[Project Start] --> Phase0[Phase 0: Research & Discovery]
+    
+    Phase0 --> R1[Web Research]
+    Phase0 --> R2[Tech Stack Analysis]
+    Phase0 --> R3[Competitive Analysis]
+    Phase0 --> R4[Requirements Gathering]
+    
+    R1 --> Phase1[Phase 1: Specification]
+    R2 --> Phase1
+    R3 --> Phase1
+    R4 --> Phase1
+    
+    Phase1 --> S1[Requirements Analysis]
+    Phase1 --> S2[User Story Creation]
+    Phase1 --> S3[Constraints Definition]
+    Phase1 --> S4[Success Criteria]
+    
+    S1 --> Phase2[Phase 2: Pseudocode]
+    S2 --> Phase2
+    S3 --> Phase2
+    S4 --> Phase2
+    
+    Phase2 --> P1[Architecture Design]
+    Phase2 --> P2[Algorithm Development]
+    Phase2 --> P3[Test Strategy]
+    Phase2 --> P4[Interface Definitions]
+    
+    P1 --> Phase3[Phase 3: Architecture]
+    P2 --> Phase3
+    P3 --> Phase3
+    P4 --> Phase3
+    
+    Phase3 --> A1[Component Specs]
+    Phase3 --> A2[Data Model]
+    Phase3 --> A3[Integration Points]
+    Phase3 --> A4[Security Design]
+    
+    A1 --> Phase4[Phase 4: Refinement]
+    A2 --> Phase4
+    A3 --> Phase4
+    A4 --> Phase4
+    
+    Phase4 --> RF1[Parallel Development]
+    Phase4 --> RF2[TDD Implementation]
+    Phase4 --> RF3[Performance Optimization]
+    Phase4 --> RF4[Code Review]
+    
+    RF1 --> Phase5[Phase 5: Completion]
+    RF2 --> Phase5
+    RF3 --> Phase5
+    RF4 --> Phase5
+    
+    Phase5 --> C1[System Integration]
+    Phase5 --> C2[Documentation]
+    Phase5 --> C3[Validation]
+    Phase5 --> C4[Deployment]
+    
+    C1 --> End[Project Complete]
+    C2 --> End
+    C3 --> End
+    C4 --> End
+```
+
 **Phase 0: Research & Discovery**
 - Parallel web research for best practices
 - Technology stack analysis

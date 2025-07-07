@@ -8,11 +8,37 @@ This analysis documents the behavior of claude-flow's swarm execution system bas
 
 ### 1. Swarm Initialization
 
-When you run `ccmax.pdi05-flow swarm "test the fix"`, the system:
+When you run `claude-flow swarm "test the fix"`, the system:
 
 1. **Creates a unique swarm ID**: `swarm-auto-centralized-1751859707728`
 2. **Generates a prompt file**: `/tmp/swarm-prompt-1751859707730.txt`
 3. **Spawns multiple agents** (default: 5) for parallel task execution
+
+```mermaid
+%%{init: {'flowchart': {'defaultRenderer': 'elk'}}}%%
+flowchart TD
+    Start[Swarm Command] --> Init[Initialize Swarm]
+    Init --> ID[Generate Swarm ID]
+    Init --> Prompt[Create Prompt File]
+    
+    ID --> Analyze[Analyze Objective]
+    Prompt --> Analyze
+    
+    Analyze --> Spawn[Spawn Agents]
+    Spawn --> A1[Test Environment Agent]
+    Spawn --> A2[Import Tester Agent]
+    Spawn --> A3[UI Validator Agent]
+    Spawn --> A4[Integration Tester Agent]
+    Spawn --> A5[Compilation Agent]
+    
+    A1 --> Memory[Shared Memory]
+    A2 --> Memory
+    A3 --> Memory
+    A4 --> Memory
+    A5 --> Memory
+    
+    Memory --> Results[Aggregate Results]
+```
 
 ### 2. Agent Communication via Memory
 
@@ -28,6 +54,30 @@ Each agent:
 - Has a unique namespace in Memory
 - Stores progress, findings, and results after each step
 - Can query other agents' data for coordination
+
+```mermaid
+%%{init: {'flowchart': {'defaultRenderer': 'elk'}}}%%
+flowchart TD
+    Agent1[Test Environment Agent] --> Store1[Memory.store<br/>environment/setup]
+    Agent2[Import Tester Agent] --> Store2[Memory.store<br/>imports/results]
+    Agent3[UI Validator Agent] --> Store3[Memory.store<br/>ui/validation]
+    
+    Store1 --> MemoryBank[(Memory Bank)]
+    Store2 --> MemoryBank
+    Store3 --> MemoryBank
+    
+    MemoryBank --> Query1[Memory.query<br/>swarm-id/*]
+    MemoryBank --> Query2[Memory.get<br/>specific/key]
+    
+    Query1 --> Agent4[Integration Tester]
+    Query2 --> Agent5[Compilation Agent]
+    
+    Agent4 --> Store4[Memory.store<br/>integration/results]
+    Agent5 --> Store5[Memory.store<br/>final/report]
+    
+    Store4 --> MemoryBank
+    Store5 --> MemoryBank
+```
 
 ### 3. SPARC Methodology Integration
 
