@@ -290,13 +290,13 @@ The system goes beyond simple task execution to create complete, production-read
 ### Basic Commands
 ```bash
 # Simple swarm execution
-ccmax.pdi01-flow swarm "analyze project structure"
+claude-flow swarm "analyze project structure"
 
 # With options
-ccmax.pdi01-flow swarm "build REST API" --max-agents 10 --strategy development
+claude-flow swarm "build REST API" --max-agents 10 --strategy development
 
 # Monitor execution
-ccmax.pdi01-flow monitor
+claude-flow monitor
 ```
 
 ### Swarm Strategies
@@ -333,7 +333,7 @@ Memory.list({ namespace: "project" });
 ### Example Use Cases
 ```bash
 # Full application development
-ccmax.pdi01-flow swarm "build a todo app with React frontend and FastAPI backend" --strategy development --max-agents 8
+claude-flow swarm "build a todo app with React frontend and FastAPI backend" --strategy development --max-agents 8
 
 # Code analysis
 cc_work-flow swarm "analyze codebase for security vulnerabilities" --strategy analysis

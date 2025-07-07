@@ -60,10 +60,10 @@ The swarm creates production-quality deliverables:
 ### 1. Task Specificity Matters
 ```bash
 # Better
-ccmax.pdi01-flow swarm "create a REST API for user management with JWT auth, PostgreSQL, and pytest tests"
+claude-flow swarm "create a REST API for user management with JWT auth, PostgreSQL, and pytest tests"
 
 # Than
-ccmax.pdi01-flow swarm "make an API"
+claude-flow swarm "make an API"
 ```
 
 ### 2. Leverage Strategies
@@ -96,10 +96,10 @@ ccmax.pdi01-flow swarm "make an API"
 The swarm's Memory persists, so you can:
 ```bash
 # First run
-ccmax.pdi01-flow swarm "analyze the codebase architecture"
+claude-flow swarm "analyze the codebase architecture"
 
 # Later run that builds on the analysis
-ccmax.pdi01-flow swarm "refactor based on the architecture analysis in memory"
+claude-flow swarm "refactor based on the architecture analysis in memory"
 ```
 
 ## The Power of Claude-Flow Swarm
