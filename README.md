@@ -1,10 +1,10 @@
 # Claude Flow Experiments and Analysis
 
-This repository contains experiments, analysis, and research notes related to Claude Flow implementation patterns and best practices.
+This repository contains experiments, analysis, and research notes related to [Claude Flow](https://github.com/ruvnet/claude-flow) implementation patterns and best practices.
 
 ## Overview
 
-Claude Flow represents a collection of methodologies and patterns for effectively utilizing Claude's capabilities in various contexts. This repository serves as a comprehensive resource for understanding and implementing these patterns.
+Claude Flow represents a collection of methodologies and patterns for effectively utilizing Claude's capabilities in various contexts. This repository serves as a comprehensive resource for understanding and implementing these patterns based on the original [ruvnet/claude-flow](https://github.com/ruvnet/claude-flow) project.
 
 ## Repository Structure
 
@@ -31,4 +31,8 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Acknowledgments
 
-Special recognition to the Claude Flow implementation team for their foundational work in this domain.
+Special recognition to the [Claude Flow implementation team](https://github.com/ruvnet/claude-flow) for their foundational work in this domain.
+
+## Related Resources
+
+- Original Claude Flow Repository: https://github.com/ruvnet/claude-flow
